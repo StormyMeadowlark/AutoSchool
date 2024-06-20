@@ -44,7 +44,12 @@ exports.index = asyncHandler(async(req,res,next) => {
 
 // Display list of all BookInstances.
 exports.blog_list = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Blog list");
+  const allBlogs = await blog.find({}, "title summary")
+    .sort({ title:1 })
+    .populate("summary")
+    .exec();
+
+    res.render("blog_list", { title: "Blog List", blog_list: allBlogs})
 });
 
 // Display detail page for a specific BookInstance.

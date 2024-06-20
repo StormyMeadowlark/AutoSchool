@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    h1= title
+    if blog_list.length 
+        ul
+            each blog in blog_list 
+                li
+                    a(href=blog.url) #{blog.title} | #{blog.summary}
+
+    else
+        p There are no blogs yet. Check back later.
