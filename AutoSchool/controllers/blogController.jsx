@@ -1,8 +1,45 @@
-const Blog = require("../models/blog.jsx");
+const blog = require("../models/blog.jsx");
+const categories = require("../models/categories.jsx")
+const comments = require("../models/comment.jsx")
+const content = require("../models/content.jsx")
+const images = require("../models/images.jsx")
+const publishingInfo = require("../models/publishingInfo.jsx")
+const tags = require("../models/tags.jsx")
+const video = require("../models/videos.jsx")
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async(req,res,next) => {
-  res.send("NOT IMPLEMENTED: Site Home Page")
+  const [
+    numBlogs,
+    numCategories,
+    numComments,
+    numContents,
+    numImages,
+    numPublishingInfo,
+    numTags,
+    numVideos,
+  ] = await Promise.all([
+    blog.countDocuments({}).exec(),
+    categories.countDocuments({}).exec(),
+    comments.countDocuments({}).exec(),
+    content.countDocuments({}).exec(),
+    images.countDocuments({}).exec(),
+    publishingInfo.countDocuments({}).exec(),
+    tags.countDocuments({}).exec(),
+    video.countDocuments({}).exec(),
+  ]);
+
+  res.render("index", {
+    title: "HEM Automotive",
+    blogs_count: numBlogs,
+    categories_count: numCategories,
+    comments_count: numComments,
+    contents_count: numContents,
+    images_count: numImages,
+    publishing_infos_count: numPublishingInfo,
+    tags_count: numTags,
+    videos_count: numVideos,
+  });
 })
 
 // Display list of all BookInstances.

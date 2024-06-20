@@ -1,7 +1,66 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Bungee&family=Play:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet")
+    link(rel='stylesheet', href='./stylesheets/style.css')
   body
-    block content
+    div(className='absolute top-0 inset-x-0 z-50 bg-black/50 font-Play')
+      block header 
+        div(className='px-3')
+          nav(className='flex flex-1 items-center justify-evenly' aria-label='Global')
+            ul
+              li
+                div
+                  button(href='/' className='flex flex-1')
+                    span(className='sr-only') H.E.M. Automotive
+                    img(className='scale-75' src='./assets/svg/GearAndWrenchFromLogo.svg')
+              li
+                div(className='flex gap-x-6 pb-8 -mt-10 justify-center text-[#eeeeee]')
+                  button(className='flex items-center')
+                    img(src="./assets/svg/phone.svg", alt="phone icon")
+                    address(className='text-center')
+                      span(className='not-italic text-[12px] focus:outline focus:outline-[#00FF00]') 785.730.2900
+                  button(className='flex items-center')
+                    img(src="./assets/svg/clock.svg" alt="clock icon")
+                    address(className='text-center')
+                      span(className='not-italic text-[12px] focus:outline focus:outline-[#00FF00]') Monday - Friday
+                      div 8:00 am - 4:00 pm 
+                  button(className='flex items-center')
+                    img(src='./assets/svg/location.svg' alt='map pin icon')
+                    address(className='text-center')
+                      span(className='not-italic text-[12px] focus:outline focus:outline-[#00FF00]') 315 SW 32nd Terrace
+                      div  Topeka, KS 66611
+                ul(className='hidden lg:flex lg:gap-x-6 lg:align-bottom lg:justify-evenly lg:py-0 lg:my-0')
+                  li  
+                    a(className='text-lg text-bold text-white text-center' href='/services') SERVICE
+                  li  
+                    a(className='text-lg text-bold text-white text-center' href='/faq') FAQ
+                  li  
+                    a(className='text-lg text-bold text-white text-center' href='/about') ABOUT
+                  li  
+                    a(className='text-lg text-bold text-white text-center' href='/contact') CONTACT
+                  li
+                    a(className='text-lg text-bold text-white text-center' href='/autoSchool') AUTO SCHOOL
+              li
+                ul(className='hidden lg:flex lg:flex-1 lg:justify-end')
+                  li(className='p-2')
+                    a(href='/account')
+                      span(className='sr-only') Log-In or Create Account
+                      img(src='./assets/svg/user.svg')
+                  li(className='p-2')
+                    a(href='/schedule')
+                      span(className='sr-only') Schedule an Appointment
+                      img(src='./assets/svg/calendar.svg')
+                  li(className='p-2')
+                    a(href='/payments')
+                      span(className='sr-only') Make a Payment
+                      img(src='./assets/svg/money.svg')
+          div()
+            block content
+                    
+
