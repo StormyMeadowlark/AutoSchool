@@ -15,7 +15,6 @@ const video_controller = require("../controllers/videoController.jsx");
 
 // GET catalog home page.
 router.get("/", blog_controller.index);
-
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
 router.get("/blog/create", blog_controller.blog_create_get);
 
