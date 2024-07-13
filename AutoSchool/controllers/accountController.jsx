@@ -1,15 +1,12 @@
-const User = require("../models/user.jsx");
+const Account = require("../models/account.jsx");
 const asyncHandler = require("express-async-handler");
-const { body, validationResult } = require("express-validator");
-const account = require("../models/user.jsx");
-
 
 exports.account = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Account");
+  res.send("NOT IMPLEMENTED: account");
 });
 
 // Display list of all BookInstances.
-exports.account_list = asyncHandler(async (req, res, next) => {
+exports.account_detail = asyncHandler(async (req, res, next) => {
   res.send("NOT IMPLEMENTED: User list");
 });
 

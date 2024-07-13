@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-  userType: {
+const AccountSchema = new Schema({
+  AccountType: {
       type: String,
       required: true,
       enum: ["Super User", "Executive Admin", "Admin", "Member", "Subscriber"],
+      default: "Admin"
     },
     joinDate: {
       type: Date,
@@ -89,8 +90,8 @@ const UserSchema = new Schema({
 }
 );
 
-UserSchema.virtual("url").get(function () {
-  return `/account/users/${this.id}`;
+AccountSchema.virtual("url").get(function () {
+  return `HEMAutoSchool/account/${this.id}`;
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Account", AccountSchema);

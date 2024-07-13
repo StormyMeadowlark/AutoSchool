@@ -10,6 +10,7 @@ const image_controller = require("../controllers/imageController.jsx");
 const publishingInfo_controller = require("../controllers/publishingInfoController.jsx");
 const tag_controller = require("../controllers/tagController.jsx");
 const video_controller = require("../controllers/videoController.jsx");
+const account_controller = require("../controllers/accountController.jsx");
 
 /// BOOK ROUTES ///
 
@@ -95,45 +96,45 @@ router.get("/comments", comment_controller.comments_list);
 
 // GET request for creating a BookInstance. NOTE This must come before route that displays BookInstance (uses id).
 router.get(
-  "content/create",
+  "/content/create",
   content_controller.content_create_get
 );
 
 // POST request for creating BookInstance.
 router.post(
-  "content/create",
+  "/content/create",
   content_controller.content_create_post
 );
 
 // GET request to delete BookInstance.
 router.get(
-  "content/:id/delete",
+  "/content/:id/delete",
   content_controller.content_delete_get
 );
 
 // POST request to delete BookInstance.
 router.post(
-  "content/:id/delete",
+  "/content/:id/delete",
   content_controller.content_delete_post
 );
 
 // GET request to update BookInstance.
 router.get(
-  "content/:id/update",
+  "/content/:id/update",
   content_controller.content_update_get
 );
 
 // POST request to update BookInstance.
 router.post(
-  "content/:id/update",
+  "/content/:id/update",
   content_controller.content_update_post
 );
 
 // GET request for one BookInstance.
-router.get("content/:id", content_controller.content_detail);
+router.get("/content/:id", content_controller.content_detail);
 
 // GET request for list of all BookInstance.
-router.get("contents", content_controller.content_list);
+router.get("/contents", content_controller.content_list);
 
 /// BOOK ROUTES ///
 
@@ -257,4 +258,47 @@ router.get("/video/:id", video_controller.video_detail);
 // GET request for list of all BookInstance.
 router.get("/videos", video_controller.video_list);
 
+/// BOOKINSTANCE ROUTES ///
+router.get("account/", account_controller.account)
+// GET request for creating a BookInstance. NOTE This must come before route that displays BookInstance (uses id).
+router.get(
+  "/account/create",
+  account_controller.account_create_get
+);
+
+// POST request for creating BookInstance.
+router.post(
+  "/account/create",
+  account_controller.account_create_post
+);
+
+// GET request to delete BookInstance.
+router.get(
+  "/account/:id/delete",
+  account_controller.account_delete_get
+);
+
+// POST request to delete BookInstance.
+router.post(
+  "/account/:id/delete",
+  account_controller.account_delete_post
+);
+
+// GET request to update BookInstance.
+router.get(
+  "/account/:id/update",
+  account_controller.account_update_get
+);
+
+// POST request to update BookInstance.
+router.post(
+  "/account/:id/update",
+  account_controller.account_update_post
+);
+
+// GET request for one BookInstance.
+router.get("/account/:id", account_controller.account_detail);
+
 module.exports = router;
+
+
